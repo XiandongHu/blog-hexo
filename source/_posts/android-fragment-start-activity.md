@@ -108,7 +108,9 @@ public void startActivityForResult(Intent intent, int requestCode) {
 }
 ```
 
-这里还有一点需要注意，传入的requestCode的高16位为什么必须全部为0？看到上面对index的计算，应该就明白了吧。
+传入的requestCode的高16位为什么必须全部为0？看到上面对index的计算，应该就明白了吧。
+
+这里还有一点需要注意，如果你需要在Fragment中调用`startActivityForResult()`，并且该Fragment对应的宿主Activity中重载了`onActivityResult()`，那么在该重载函数中必须调用`super.onActivityResult()`。
 
 ### **直接调用Fragment的`startActivityForResult()`有一个坑**
 
